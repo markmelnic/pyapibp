@@ -1,16 +1,16 @@
 
-<p align="center">
+<div align="center">
 
 ![PYAPIBP Logo](https://github.com/markmelnic/pyapibp/blob/main/res/logo.png)
 
 # `pyapibp` - Python boilerplate code generator to easily start building API\'s
 
-</p>
-
 ![PyPI Version](https://img.shields.io/pypi/pyversions/dash.svg)
 ![PyPI Version](https://img.shields.io/pypi/v/pyapibp.svg)
 ![License](https://img.shields.io/pypi/l/pyapibp.svg)
-![Commit Activity](https://img.shields.io/github/commit-activity/y/markmelnic/pyapibp.svg)
+
+</div>
+
 
 This python script generates a folder structure along all default files for an API framework in the current directory, optionally creating a new one.
 
