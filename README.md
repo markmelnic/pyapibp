@@ -1,7 +1,7 @@
 
 <div align="center">
 
-![PYAPIBP Logo](https://github.com/markmelnic/pyapibp/blob/main/res/logo.png)
+<img src="https://github.com/markmelnic/pyapibp/blob/main/res/logo.png" alt="PYAPIBP Logo" width="400"/>
 
 # `pyapibp` - Python boilerplate code generator to easily start building API\'s
 
