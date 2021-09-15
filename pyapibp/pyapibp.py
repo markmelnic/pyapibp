@@ -29,7 +29,7 @@ class pyapibp:
         if answers['framework'] == 'flask':
             self._flask_bp()
         elif answers['framework'] == 'fastapi':
-            raise NotImplementedError('FastAPI is not implemented yet')
+            self._fastapi_bp()
         elif answers['framework'] == 'django':
             raise NotImplementedError('Django is not implemented yet')
 
@@ -76,3 +76,36 @@ class pyapibp:
             os.makedirs(os.path.join(app_cwd, 'static/css'), exist_ok=True)
             os.makedirs(os.path.join(app_cwd, 'static/img'), exist_ok=True)
             os.makedirs(os.path.join(app_cwd, 'static/js'), exist_ok=True)
+
+    def _fastapi_bp(self) -> None:
+        logging.info(f'Using FastAPI Blueprint')
+
+        cwd = os.getcwd()
+
+        with open(os.path.join(cwd, '.env'), 'w') as f:
+            f.write(f'PROJECT_NAME = FastAPI app\n\nDEBUG = True\nDATABASE_URL = sqlite:///.db\nSECRET_KEY = {uuid.uuid4().hex}')
+        with open(os.path.join(cwd, 'asgi.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['asgi'])
+
+        db_cwd = os.path.join(cwd, 'db')
+        os.makedirs(db_cwd, exist_ok=True)
+        with open(os.path.join(db_cwd, '__init__.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['__init__db'])
+        with open(os.path.join(db_cwd, 'models.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['models'])
+
+        utils_cwd = os.path.join(cwd, 'utils')
+        os.makedirs(utils_cwd, exist_ok=True)
+        with open(os.path.join(utils_cwd, '__init__.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['__init__utils'])
+        with open(os.path.join(utils_cwd, 'schemas.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['schemas'])
+        with open(os.path.join(utils_cwd, 'hashing.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['hashing'])
+
+        routers_cwd = os.path.join(cwd, 'routers')
+        os.makedirs(routers_cwd, exist_ok=True)
+        with open(os.path.join(routers_cwd, '__init__.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['__init__routers'])
+        with open(os.path.join(routers_cwd, 'server.py'), 'w') as f:
+            f.write(BLUEPRINTS['fastapi']['server'])
