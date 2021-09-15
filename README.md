@@ -1,4 +1,3 @@
-
 <div align="center">
 
 <img src="https://github.com/markmelnic/pyapibp/blob/main/res/logo.png" alt="PYAPIBP Logo" width="400"/>
@@ -11,16 +10,15 @@
 
 </div>
 
-
 This python script generates a folder structure along all default files for an API framework in the current directory, optionally creating a new one.
 
 Currently supported frameworks:
 
 - Flask
+- FastAPI
 
 Work in progress:
 
-- FastAPI
 - Django
 
 ## Short backstory
